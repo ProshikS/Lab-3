@@ -49,7 +49,10 @@
 затем вычисляется сумма чисел начинающихся на цифру dig и программа выводит ее на экран
 
 ### Тестирование
-
+<img width="404" height="197" alt="image" src="https://github.com/user-attachments/assets/cc4599be-fbed-4b99-bb26-f5419d68bc4e" />
+<img width="445" height="65" alt="image" src="https://github.com/user-attachments/assets/c625c097-33fa-4e3e-9c5b-487556b76738" />
+<img width="393" height="192" alt="image" src="https://github.com/user-attachments/assets/1a02d08c-c211-40fa-a716-88e5c51ae564" />
+<img width="395" height="195" alt="image" src="https://github.com/user-attachments/assets/83ec1138-a6c3-42d4-b49f-7b2c8b00273b" />
 
 
 
