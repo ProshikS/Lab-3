@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "ajgKx6lhJtk=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Prokhor\\source\\repos\\Lab3-task2\\Lab3-task2\\Lab3-task2.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Prokhor\\.nuget\\packages\\fsharp.core\\9.0.303\\fsharp.core.9.0.303.nupkg.sha512"
+  ],
+  "logs": []
+}
