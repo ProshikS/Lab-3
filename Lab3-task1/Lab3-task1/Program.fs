@@ -1,37 +1,38 @@
-﻿let NaturalNumbers n = //Генератор последовательности с числами
+﻿open System
+
+let rec naturalNumbers n = 
     seq{
-        for i in 1 .. n do
+        for i in 1 .. n do 
             printf "Введите натуральное число: "
-            let num = int(System.Console.ReadLine())
-            if num < 0 then //проверка на корректность
-                printfn "Введено неверное число!"
-                printfn "Взято число по модулю!"
+            let str = System.Console.ReadLine()
+            let succes, num = Int32.TryParse(str)
+            if succes then
                 yield abs(num)
             else
-                if num = 0 then
-                    printfn "Введено неверное число!"
-                    printfn "Взято число 1"
-                    yield 1
-                else
-                    yield num
+                printfn "Ошибка ввода!"
+                yield! naturalNumbers 1
     }
 
-let rec Sum number = //функция вычисления суммы цифр числа
+let rec readNumber () =
+    printf "Введите количество элементов: "
+    let length = System.Console.ReadLine()
+    let succes, number = Int32.TryParse(length)
+    if succes then
+        number
+    else
+        printfn "Ошибка ввода!"
+        readNumber ()
+
+let rec sum number = //функция вычисления суммы цифр числа
     if number = 0 then 
         0
     else 
-        number % 10 + Sum (number/10)
+        (number % 10) + sum (number/10)
 
 [<EntryPoint>]
 let main argv =
-    printf "Введите количество элементов: "
-    let length = int(System.Console.ReadLine())
-    if length > 0 then
-        let numbers = NaturalNumbers(length)
-        let sumSeq = numbers |> Seq.map Sum |> Seq.toList
-        printfn "Суммы цифр введенных чисел: "
-        for s in sumSeq do
-            printf "%d " s
-    else 
-        printfn "Введено неверное значение!"
+    let length = readNumber()
+    let numbers = naturalNumbers(length)
+    let sumSeq = numbers |> Seq.map sum 
+    printfn "Суммы цифр введенных чисел: %A"sumSeq
     0
