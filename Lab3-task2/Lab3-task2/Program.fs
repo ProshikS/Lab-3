@@ -10,19 +10,11 @@ let rec readNumber () =
     printf "Введите количество элементов: "
     let length = Console.ReadLine()
     let succes, number = Int32.TryParse(length)
-    if succes then
+    if succes && number>0 then
         number
     else
         printfn "Ошибка ввода!"
         readNumber ()
-
-let r amount = //генератор seq с элементами
-    seq{
-    for i in 1 .. amount do
-        printf "Введите число: "
-        let number = float(Console.ReadLine())
-        yield number
-    }
 
 let rec inputNumber n = 
     seq{
@@ -34,7 +26,7 @@ let rec inputNumber n =
                 yield num
             else
                 printfn "Ошибка ввода!"
-                yield! inputNumber i
+                yield! inputNumber 1
     }
 
 let rec inputDig () =
@@ -55,14 +47,8 @@ let rec inputDig () =
 [<EntryPoint>]
 let main avrg =
     let amount = readNumber()
-    if amount <> -1 then
-        let n = inputNumber(amount)
-        let dig = inputDig()
-        if dig <> -1 then //проверка на флаги
-            let sum=Seq.fold(fun ac e->ac+firstNum e dig)0.0 n
-            printf "Сумма чисел равна %f" sum
-            0
-        else
-        0
-    else
+    let n = inputNumber(amount)
+    let dig = inputDig()
+    let sum=Seq.fold(fun ac e->ac+firstNum e dig)0.0 n
+    printf "Сумма чисел равна %f" sum
     0

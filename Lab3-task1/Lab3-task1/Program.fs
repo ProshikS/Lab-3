@@ -1,5 +1,6 @@
 ﻿open System
 
+//функция ввода натуральных чисел
 let rec naturalNumbers n = 
     seq{
         for i in 1 .. n do 
@@ -17,7 +18,7 @@ let rec readNumber () =
     printf "Введите количество элементов: "
     let length = System.Console.ReadLine()
     let succes, number = Int32.TryParse(length)
-    if succes then
+    if succes && number>0 then
         number
     else
         printfn "Ошибка ввода!"
@@ -34,5 +35,7 @@ let main argv =
     let length = readNumber()
     let numbers = naturalNumbers(length)
     let sumSeq = numbers |> Seq.map sum 
-    printfn "Суммы цифр введенных чисел: %A"sumSeq
+    printfn "\nСуммы цифр введенных чисел:"
+    for s in sumSeq do
+        printfn "сумма цифр равна %d" s
     0
